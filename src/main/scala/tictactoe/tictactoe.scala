@@ -2,10 +2,11 @@ package tictactoe
 
 
 import scala.swing.*
+import scala.io.StdIn.readLine
 
 /*
 DONE: win detection
-TODO: get swing interacting with doodle using the contents +=
+SCRAPPED: get swing interacting with doodle using the contents +=
 DONE: add tie detection
 DONE: add states for buttons (meaning once you press one you can't press it again)
 DONE: add a quick reset button
@@ -251,14 +252,20 @@ object round :
     else false
   }
 
-object drawPlayer :
-  def drawX = {
-
-  }
-  def drawO(loc : Int) = {
-
-  }
-
-@main def main() : Unit = {
+def main() : Unit = {
   newButton()
+}
+@main def tttMain() : Unit = {
+  /*
+  println("Press 1 for Tic-Tac-Toe or press 2 for Hangman")
+  val user = readLine()
+  if user == "1" then
+    newButton()
+  else
+    hmMain()
+    println()
+
+   */
+  hmMain()
+
 }
