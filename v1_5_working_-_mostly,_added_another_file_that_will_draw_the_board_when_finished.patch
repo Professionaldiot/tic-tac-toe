@@ -1,0 +1,521 @@
+Subject: [PATCH] v1.5 working - mostly, added another file that will draw the board when finished
+---
+Index: .gitignore
+===================================================================
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+--- /dev/null	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
++++ b/.gitignore	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
+@@ -0,0 +1,38 @@
++target/
++!.mvn/wrapper/maven-wrapper.jar
++!**/src/main/**/target/
++!**/src/test/**/target/
++
++### IntelliJ IDEA ###
++.idea/modules.xml
++.idea/jarRepositories.xml
++.idea/compiler.xml
++.idea/libraries/
++*.iws
++*.iml
++*.ipr
++
++### Eclipse ###
++.apt_generated
++.classpath
++.factorypath
++.project
++.settings
++.springBeans
++.sts4-cache
++
++### NetBeans ###
++/nbproject/private/
++/nbbuild/
++/dist/
++/nbdist/
++/.nb-gradle/
++build/
++!**/src/main/**/build/
++!**/src/test/**/build/
++
++### VS Code ###
++.vscode/
++
++### Mac OS ###
++.DS_Store
+Index: .idea/.gitignore
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
++++ b/.idea/.gitignore	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+Index: .idea/codeStyles/Project.xml
+===================================================================
+diff --git a/.idea/codeStyles/Project.xml b/.idea/codeStyles/Project.xml
+new file mode 100644
+--- /dev/null	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
++++ b/.idea/codeStyles/Project.xml	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
+@@ -0,0 +1,7 @@
++<component name="ProjectCodeStyleConfiguration">
++  <code_scheme name="Project" version="173">
++    <ScalaCodeStyleSettings>
++      <option name="MULTILINE_STRING_CLOSING_QUOTES_ON_NEW_LINE" value="true" />
++    </ScalaCodeStyleSettings>
++  </code_scheme>
++</component>
+\ No newline at end of file
+Index: .idea/codeStyles/codeStyleConfig.xml
+===================================================================
+diff --git a/.idea/codeStyles/codeStyleConfig.xml b/.idea/codeStyles/codeStyleConfig.xml
+new file mode 100644
+--- /dev/null	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
++++ b/.idea/codeStyles/codeStyleConfig.xml	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
+@@ -0,0 +1,5 @@
++<component name="ProjectCodeStyleConfiguration">
++  <state>
++    <option name="PREFERRED_PROJECT_CODE_STYLE" value="Default" />
++  </state>
++</component>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
++++ b/.idea/misc.xml	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
+@@ -0,0 +1,5 @@
++<project version="4">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="19" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/sbt.xml
+===================================================================
+diff --git a/.idea/sbt.xml b/.idea/sbt.xml
+new file mode 100644
+--- /dev/null	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
++++ b/.idea/sbt.xml	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
+@@ -0,0 +1,22 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ScalaSbtSettings">
++    <option name="customLauncherPath" />
++    <option name="customVMPath" />
++    <option name="linkedExternalProjectsSettings">
++      <SbtProjectSettings>
++        <option name="converterVersion" value="1" />
++        <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="modules">
++          <set>
++            <option value="$PROJECT_DIR$" />
++            <option value="$PROJECT_DIR$/project" />
++          </set>
++        </option>
++        <option name="resolveSbtClassifiers" value="true" />
++        <option name="sbtVersion" value="1.9.6" />
++        <option name="useSbtShellForImport" value="true" />
++      </SbtProjectSettings>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/scala_compiler.xml
+===================================================================
+diff --git a/.idea/scala_compiler.xml b/.idea/scala_compiler.xml
+new file mode 100644
+--- /dev/null	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
++++ b/.idea/scala_compiler.xml	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ScalaCompilerConfiguration">
++    <profile name="sbt 1" modules="tictactoe" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/scala_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/scala_settings.xml b/.idea/scala_settings.xml
+new file mode 100644
+--- /dev/null	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
++++ b/.idea/scala_settings.xml	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ScalaProjectSettings">
++    <option name="scala3DisclaimerShown" value="true" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
++++ b/.idea/vcs.xml	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: build.sbt
+===================================================================
+diff --git a/build.sbt b/build.sbt
+new file mode 100644
+--- /dev/null	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
++++ b/build.sbt	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
+@@ -0,0 +1,11 @@
++ThisBuild / version := "0.1.0-SNAPSHOT"
++
++ThisBuild / scalaVersion := "3.3.1"
++
++lazy val root = (project in file("."))
++  .settings(
++    name := "tictactoe"
++  )
++
++libraryDependencies += "org.scala-lang.modules" %% "scala-swing" % "3.0.0"
++libraryDependencies += "org.creativescala" %% "doodle" % "0.20.0"
+\ No newline at end of file
+Index: project/build.properties
+===================================================================
+diff --git a/project/build.properties b/project/build.properties
+new file mode 100644
+--- /dev/null	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
++++ b/project/build.properties	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
+@@ -0,0 +1,1 @@
++sbt.version = 1.9.6
+Index: src/main/scala/tictactoe/drawTTT.scala
+===================================================================
+diff --git a/src/main/scala/tictactoe/drawTTT.scala b/src/main/scala/tictactoe/drawTTT.scala
+new file mode 100644
+--- /dev/null	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
++++ b/src/main/scala/tictactoe/drawTTT.scala	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
+@@ -0,0 +1,30 @@
++package tictactoe
++
++import cats.implicits.*
++import cats.effect.unsafe.implicits.global
++import doodle.core.*
++import doodle.java2d.*
++import doodle.image.*
++import doodle.image.syntax.all.*
++import doodle.image.syntax.core.*
++import doodle.reactor.*
++//import doodle.svg.*
++import doodle.syntax.angle
++
++def notMain() : Unit = {
++  val blackSquare = Image.rectangle(90, 90).fillColor(Color.black)
++  val redSquare = Image.rectangle(90, 90).fillColor(Color.red)
++  val whiteSquare = Image.rectangle(90, 90).fillColor(Color.white)
++
++  // A chessboard, broken into steps showing the recursive construction
++  val oneLine =
++    redSquare.above(redSquare).above(redSquare)
++
++  val twoLine =
++    blackSquare.above(blackSquare).above(blackSquare)
++
++  val chessboard =
++    oneLine.beside(twoLine).beside(oneLine)
++  
++  chessboard.draw()
++}
+\ No newline at end of file
+Index: src/main/scala/tictactoe/tictactoe.scala
+===================================================================
+diff --git a/src/main/scala/tictactoe/tictactoe.scala b/src/main/scala/tictactoe/tictactoe.scala
+new file mode 100644
+--- /dev/null	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
++++ b/src/main/scala/tictactoe/tictactoe.scala	(revision dc3405d987ccc189f3ecfc2b0eb454e6578ef436)
+@@ -0,0 +1,264 @@
++package tictactoe
++
++
++import scala.swing.*
++
++/*
++DONE: win detection
++TODO: get swing interacting with doodle using the contents +=
++DONE: add tie detection
++DONE: add states for buttons (meaning once you press one you can't press it again)
++DONE: add a quick reset button
++DONE: back and forth game play
++DONE: position selection using swing?
++
++using matrices' to hold positions (arrays of arrays of ints)
++numbers represent our player(1 and 2)
++
++ */
++
++trait boardState :
++  def currentState(board : Array[Array[Int]]) : Unit
++
++object board :
++  var bard : Array[Array[Int]] = Array.ofDim[Int](3,3)
++
++class boardAdder extends boardState {
++  def bored(player : Int, x : Int, y : Int): Unit = {
++    board.bard(x)(y) = player
++  }
++
++  override def currentState(args: Array[Array[Int]]): Unit = {
++    for (i <- 0 until 3) {
++      for (j <- 0 until 3) {
++        print(args(i)(j) + " ")
++      }
++      println()
++    }
++  }
++}
++
++def newButton() : Unit = {
++  val player = new boardAdder()
++  new scala.swing.Frame()  {
++    title = "Example Scala-Swing App"
++    preferredSize = new Dimension(500,500)
++    contents = new GridPanel(5,5) {
++      contents += new Label("Tic")
++      contents += new Label("Tac")
++      contents += new Label("Toe")
++
++      contents += new ToggleButton("1") {
++        reactions += {
++          case event.ButtonClicked(enabled_) =>
++            player.bored(round.player, 0, 0)
++            player.currentState(board.bard)
++            win.bundle
++            enabled = false
++            println()
++        }
++      }
++      contents += new ToggleButton("4") {
++        reactions += {
++          case event.ButtonClicked(enabled_) =>
++            player.bored(round.player, 0,1)
++            player.currentState(board.bard)
++            win.bundle
++            enabled = false
++            println()
++        }
++      }
++      contents += new ToggleButton("7") {
++        reactions += {
++          case event.ButtonClicked(enabled_) =>
++            player.bored(round.player, 0,2)
++            player.currentState(board.bard)
++            win.bundle
++            enabled = false
++            println()
++        }
++      }
++      contents += new ToggleButton("2") {
++        reactions += {
++          case event.ButtonClicked(enabled_) =>
++            player.bored(round.player, 1, 0)
++            player.currentState(board.bard)
++            win.bundle
++            enabled = false
++            println()
++        }
++      }
++      contents += new ToggleButton("5") {
++        reactions += {
++          case event.ButtonClicked(enabled_) =>
++            player.bored(round.player, 1, 1)
++            player.currentState(board.bard)
++            win.bundle
++            enabled = false
++            println()
++        }
++      }
++      contents += new ToggleButton("8") {
++        reactions += {
++          case event.ButtonClicked(enabled_) =>
++            player.bored(round.player, 1,2)
++            player.currentState(board.bard)
++            win.bundle
++            enabled = false
++            println()
++        }
++      }
++      contents += new ToggleButton("3") {
++        reactions += {
++          case event.ButtonClicked(enabled_) =>
++            player.bored(round.player, 2, 0)
++            player.currentState(board.bard)
++            win.bundle
++            enabled = false
++            println()
++        }
++      }
++      contents += new ToggleButton("6") {
++        reactions += {
++          case event.ButtonClicked(enabled_) =>
++            player.bored(round.player, 2,1)
++            player.currentState(board.bard)
++            win.bundle
++            enabled = false
++            println()
++        }
++      }
++      contents += new ToggleButton("9") {
++        reactions += {
++          case event.ButtonClicked(enabled_) =>
++            player.bored(round.player, 2, 2)
++            player.currentState(board.bard)
++            win.bundle
++            enabled = false
++            println()
++        }
++      }
++      contents += new ToggleButton("Reset") {
++        reactions += {
++          case event.ButtonClicked(enabled_) =>
++            println("Resetting...")
++            for (i <- 0 until 3) {
++              for (j <- 0 until 3) {
++                board.bard(i)(j) = 0
++              }
++            }
++            round.player = 1
++            round.tieCounter = 0
++            round.roundNum = 0
++            close()
++            main()
++        }
++      }
++    }
++    pack()
++    centerOnScreen()
++    open()
++
++  }
++}
++object win :
++  def bundle = {
++    round.nextRound
++    winner.horiz(board.bard)
++    winner.vertical(board.bard)
++    winner.diagonal(board.bard)
++    if round.tieChecker == true then println("There is a tie, no one won.")
++  }
++
++object winner :
++  private var i = 0
++  def horiz(board : Array[Array[Int]]): Unit = {
++    for (i <- 0 until 3) {
++      for (j <- 0 until 3) {
++        this.i += 1
++        if this.i == 3 then
++          this.i = 0
++          if board(i)(j) == 0 then
++            print(" ")
++          else if board(i)(j) == board(i)(j-2) && board(i)(j) == board(i)(j-1) then
++            println()
++            round.nextRound
++            println("player " + round.player + " has won")
++          if round.roundNum == 9 then
++            if !(board(i)(j) == board(i)(j-2) && board(i)(j) == board(i)(j-1)) then
++              round.tieCounter += 1
++      }
++    }
++  }
++
++  def vertical(board: Array[Array[Int]]): Unit = {
++    for (i <- 0 until 1) {
++      for (j <- 0 until 3) {
++        if board(i)(j) == 0 then
++          print(" ")
++        else if board(i)(j) == board(i+2)(j) && board(i)(j) == board(i+1)(j) then
++          println()
++          round.nextRound
++          println(board(i)(j) + " ")
++          println("player " + round.player + " has won")
++        if round.roundNum == 9 then
++          if !(board(i)(j) == board(i + 2)(j) && board(i)(j) == board(i + 1)(j)) then
++            round.tieCounter += 1
++      }
++    }
++  }
++  def diagonal(board : Array[Array[Int]]): Unit = {
++    if board(0)(0) == board(1)(1) && board(0)(0) == board(2)(2) then
++      if board(0)(0) == 0 then
++        print(" ")
++      else
++        println()
++        round.nextRound
++        println("player " + round.player + " has won")
++    else if board(0)(2) == board(1)(1) && board(0)(2) == board(2)(0) then
++      if board(0)(2) == 0 then
++        print(" ")
++      else
++        println()
++        round.nextRound
++        println("player " + round.player + " has won")
++    if round.roundNum == 9 then
++      if !(board(0)(0) == board(1)(1) && board(0)(0) == board(2)(2)) || !(board(0)(2) == board(1)(1) && board(0)(2) == board(2)(0)) then
++        round.tieCounter += 1
++  }
++
++object round :
++  var player : Int = 1
++  var roundNum : Int = 0
++  var tieCounter : Int = 0
++  def nextRound = {
++    if player == 1 then
++      roundNum += 1
++      player = 2
++    else if player == 2 then
++      roundNum += 1
++      player = 1
++    else
++      player = 1
++  }
++  def check(player : Int) : Int = {
++    this.player
++  }
++  def tieChecker  : Boolean = {
++    if roundNum == 9 then
++      if tieCounter >= 0 then true
++      else false
++    else false
++  }
++
++object drawPlayer :
++  def drawX = {
++
++  }
++  def drawO(loc : Int) = {
++
++  }
++
++@main def main() : Unit = {
++  newButton()
++}
+\ No newline at end of file
