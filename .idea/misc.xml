@@ -1,5 +1,9 @@
 <project version="4">
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" default="true">
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="19" project-jdk-type="JavaSDK">
+>>>>>>> dc3405d (v1.5 working - mostly, added another file that will draw the board when finished)
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
