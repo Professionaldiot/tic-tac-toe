@@ -20,7 +20,7 @@ TODO: loss detection
 
 trait wordState :
   def word(userWord : String) : String
-  def setWord(userWord : String) : String = word(userWord)
+
 object word :
   var userArray : ArrayBuffer[Char] = ArrayBuffer[Char]() //including spaces
   def toArray(word : String) : Any = {
@@ -33,15 +33,16 @@ class player extends wordState {
     println(this.userWord)
   }
   override def word(userWord: String): String = {
-    for char <- userWord do 
+    for char <- userWord do
       this.userWord += char
-    println("" + setWord(this.userWord))
-    setWord(this.userWord)
+    println(this.userWord)
+    this.userWord
   }
 }
 
-def hmMain(): Unit = {
+@main def hmMain(): Unit = {
   val user = new player()
+  println("i am here")
   user.word("test")
-  println()
+  //println(user.currentWord())
 }
