@@ -4,27 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f7a659e-d82b-4cf8-a420-81abce760716" name="Changes" comment="1.8 fixed a bug causing setWord to run hangman.scala indefinitely (by removing setWord)">
+    <list default="true" id="9f7a659e-d82b-4cf8-a420-81abce760716" name="Changes" comment="1.9 - added multiple fixes for hangman.scala, included in these fixes are some new functions, still have to get the list interacting with swing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/tictactoe/hangman.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/tictactoe/hangman.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/tictactoe/tictactoe.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/tictactoe/tictactoe.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardAdder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardAdder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardAdder.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardAdder.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardState.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardState.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardState.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package$$anon$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package$$anon$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1_5_working_-_mostly,_added_another_file_that_will_draw_the_board_when_finished.patch" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,6 +157,9 @@
       <workItem from="1696978931161" duration="766000" />
       <workItem from="1697014249663" duration="1208000" />
       <workItem from="1697016778150" duration="598000" />
+      <workItem from="1697017468543" duration="383000" />
+      <workItem from="1697018374172" duration="514000" />
+      <workItem from="1697019595254" duration="630000" />
     </task>
     <task id="LOCAL-00001" summary="v1.5 working - mostly, added another file that will draw the board when finished">
       <option name="closed" value="true" />
@@ -223,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696965717005</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="1.9 - added multiple fixes for hangman.scala, included in these fixes are some new functions, still have to get the list interacting with swing">
+      <option name="closed" value="true" />
+      <created>1697017571241</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1697017571241</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,6 +239,7 @@
     <MESSAGE value="v1.5 working - mostly, added another file that will draw the board when finished" />
     <MESSAGE value="v1.7 finished TODO for tic-tac-toe, started work on hangman" />
     <MESSAGE value="1.8 fixed a bug causing setWord to run hangman.scala indefinitely (by removing setWord)" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.8 fixed a bug causing setWord to run hangman.scala indefinitely (by removing setWord)" />
+    <MESSAGE value="1.9 - added multiple fixes for hangman.scala, included in these fixes are some new functions, still have to get the list interacting with swing" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.9 - added multiple fixes for hangman.scala, included in these fixes are some new functions, still have to get the list interacting with swing" />
   </component>
 </project>

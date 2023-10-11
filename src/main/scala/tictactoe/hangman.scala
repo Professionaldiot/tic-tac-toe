@@ -6,6 +6,7 @@ import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.ArrayBuffer.*
 import scala.collection.mutable
 import scala.collection.mutable.*
+import scala.language.postfixOps
 import scala.swing.event.KeyPressed.*
 import scala.swing.event.Key.*
 import scala.swing.event.Key.Location
@@ -26,7 +27,7 @@ trait wordState :
   def word(userWord : String) : String
 
 object word :
-  private var underscoredWord : String = ""
+  var underscoredWord : String = ""
   var userArray : ArrayBuffer[Char] = ArrayBuffer[Char]() //including spaces
   def toArray(word : String) : Any = {
     for i <- word do
@@ -34,11 +35,11 @@ object word :
   }
   def toUnderscores(string : ArrayBuffer[Char]) : String = {
     for elem <- string do
-      if elem != ' ' || elem != ',' then
+      if elem == '\u0020' || elem == '\u0009' || elem == '\u000D' || elem == '\u000A' then
+        underscoredWord += " >  "
+      else
         underscoredWord += "_ "
-      else if elem == ' ' then
-        underscoredWord += "   "
-      else if elem == ',' then
+      if elem == ',' then
         underscoredWord += ","
     underscoredWord
   }
@@ -113,4 +114,7 @@ def hmMain(): Unit = {
   word.toArray(guess.correctWord)
   word.toUnderscores(word.userArray)
   println(word.userArray)
+  println()
+  println(guess.correctWord)
+  println(word.underscoredWord)
 }
