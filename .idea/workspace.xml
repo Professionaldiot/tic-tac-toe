@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f7a659e-d82b-4cf8-a420-81abce760716" name="Changes" comment="v1.7 finished TODO for tic-tac-toe, started work on hangman">
+    <list default="true" id="9f7a659e-d82b-4cf8-a420-81abce760716" name="Changes" comment="1.8 fixed a bug causing setWord to run hangman.scala indefinitely (by removing setWord)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/tictactoe/hangman.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/tictactoe/hangman.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/tictactoe/tictactoe.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/tictactoe/tictactoe.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.tasty" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardAdder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardAdder.class" afterDir="false" />
@@ -15,13 +17,14 @@
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardState.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardState.tasty" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package$$anon$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package$$anon$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.tasty" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.tasty" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_5_working_-_mostly,_added_another_file_that_will_draw_the_board_when_finished.patch" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +50,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Professionaldiot&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="dcdbe6b9-17b8-4132-927b-9d2ed771accd" />
+        <option name="url" value="https://github.com/Professionaldiot/tic-tac-toe.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -79,7 +96,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.hmMain">
+  <component name="RunManager" selected="Application.tttMain">
     <configuration name="hmMain" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="tictactoe.hmMain" />
       <module name="tictactoe" />
@@ -128,8 +145,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.hmMain" />
         <item itemvalue="Application.tttMain" />
+        <item itemvalue="Application.hmMain" />
         <item itemvalue="Application.tictactoe.main" />
         <item itemvalue="Application.main" />
       </list>
@@ -152,7 +169,11 @@
       <workItem from="1696951445521" duration="787000" />
       <workItem from="1696952670733" duration="1844000" />
       <workItem from="1696962396146" duration="370000" />
-      <workItem from="1696964296713" duration="1346000" />
+      <workItem from="1696964296713" duration="1795000" />
+      <workItem from="1696966249323" duration="1797000" />
+      <workItem from="1696978931161" duration="766000" />
+      <workItem from="1697014249663" duration="1208000" />
+      <workItem from="1697016778150" duration="598000" />
     </task>
     <task id="LOCAL-00001" summary="v1.5 working - mostly, added another file that will draw the board when finished">
       <option name="closed" value="true" />
@@ -194,7 +215,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696965136338</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="1.8 fixed a bug causing setWord to run hangman.scala indefinitely (by removing setWord)">
+      <option name="closed" value="true" />
+      <created>1696965717005</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1696965717005</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,6 +244,7 @@
     <MESSAGE value="v1.6 working - mostly, added another file that will draw the board when finished" />
     <MESSAGE value="v1.5 working - mostly, added another file that will draw the board when finished" />
     <MESSAGE value="v1.7 finished TODO for tic-tac-toe, started work on hangman" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.7 finished TODO for tic-tac-toe, started work on hangman" />
+    <MESSAGE value="1.8 fixed a bug causing setWord to run hangman.scala indefinitely (by removing setWord)" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.8 fixed a bug causing setWord to run hangman.scala indefinitely (by removing setWord)" />
   </component>
 </project>

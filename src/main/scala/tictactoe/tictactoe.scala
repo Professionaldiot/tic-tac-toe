@@ -41,8 +41,8 @@ class boardAdder extends boardState {
 
 def newButton() : Unit = {
   val player = new boardAdder()
-  new scala.swing.Frame()  {
-    title = "Example Scala-Swing App"
+  new Frame() {
+    title = "TIC-TAC-TOE"
     preferredSize = new Dimension(500,500)
     contents = new GridPanel(5,5) {
       contents += new Label("Tic")

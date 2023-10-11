@@ -6,8 +6,12 @@ import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.ArrayBuffer.*
 import scala.collection.mutable
 import scala.collection.mutable.*
+import scala.swing.event.KeyPressed.*
+import scala.swing.event.Key.*
+import scala.swing.event.Key.Location
+import scala.util.control.Breaks.*
 /*
-TODO: maybe use a trait to do word state?
+DONE: word state trait
 TODO: use a list to update the words on screen
 TODO: get user inputted text on screen to the swing Frame
 TODO: from a list, take a random word from said list to get a random word
@@ -22,13 +26,40 @@ trait wordState :
   def word(userWord : String) : String
 
 object word :
+  private var underscoredWord : String = ""
   var userArray : ArrayBuffer[Char] = ArrayBuffer[Char]() //including spaces
   def toArray(word : String) : Any = {
     for i <- word do
       userArray += i
   }
+  def toUnderscores(string : ArrayBuffer[Char]) : String = {
+    for elem <- string do
+      if elem != ' ' || elem != ',' then
+        underscoredWord += "_ "
+      else if elem == ' ' then
+        underscoredWord += "   "
+      else if elem == ',' then
+        underscoredWord += ","
+    underscoredWord
+  }
+
+object guess :
+  var correctWord = ""
+  var wordBool = false
+  def guessBool(guess : String) : Unit = {
+    if guess == correctWord then wordBool = true
+    else if guess.length == 1 then
+      breakable {
+        for elem <- correctWord do
+          if elem == guess(0) then
+            wordBool = true
+            break
+          else wordBool = false
+      }
+    else wordBool = false
+  }
 class player extends wordState {
-  private var userWord = ""
+  var userWord = ""
   def currentWord() : Unit = {
     println(this.userWord)
   }
@@ -40,9 +71,46 @@ class player extends wordState {
   }
 }
 
-@main def hmMain(): Unit = {
+def newText(userGuess : String) : Unit = {
+  val user = new player()
+  new Frame() {
+    title = "HANGMAN"
+    preferredSize = new Dimension(500,500)
+
+    contents = new GridPanel(5,5){
+      contents += new TextField("Type your guess in the console, use the button to start the check...", 25)
+      contents += new  ToggleButton("Check your guess!") {
+        reactions += {
+          case event.ButtonClicked(enabled_) =>
+
+        }
+      }
+
+    }
+    pack()
+    centerOnScreen()
+    open()
+  }
+}
+
+def getNewWord : Any = {
+  println("Type your word in the console below this.")
+  val user = new player()
+  val word = readLine()
+  user.word(word)
+  guess.correctWord = user.userWord
+
+}
+
+def hmMain(): Unit = {
+  /*
   val user = new player()
   println("i am here")
   user.word("test")
-  //println(user.currentWord())
+  println(user.currentWord())
+  */
+  getNewWord
+  word.toArray(guess.correctWord)
+  word.toUnderscores(word.userArray)
+  println(word.userArray)
 }
