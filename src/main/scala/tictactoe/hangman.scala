@@ -13,20 +13,19 @@ import scala.swing.event.Key.Location
 import scala.util.control.Breaks.*
 /*
 DONE: word state trait
-TODO: use a list to update the words on screen
 TODO: get user inputted text on screen to the swing Frame
 TODO: from a list, take a random word from said list to get a random word
-TODO: use swing to type user input in a box and check whether it's the correct word or not
+SCRAPPED: use swing to type user input in a box and check whether it's the correct word or not
 TODO: get wrong letters written to swing Frame
 TODO: add a way to update the man according to whether the letter was right or wrong
 TODO: win detection
 TODO: loss detection
+DONE: remove deprecated methods, traits and vals
+DONE: using word.setLetters fill in the blank letters if they are right
  */
 
-trait wordState :
-  def word(userWord : String) : String
-
 object word :
+  var idx = 0
   var underscoredWord : String = ""
   val userArray : ArrayBuffer[Char] = ArrayBuffer[Char]() //including spaces
   var underscoreArray : ArrayBuffer[Char] = ArrayBuffer[Char]()
@@ -38,32 +37,25 @@ object word :
       userArray += i
   }
 
-  def addCorrectGuess(): Unit = {
-    var charToTake : Int = 0
-    for char <- guess.newUserGuess do
-      guess.guessBool(game.guessNew)
-      if guess.wordBool then
-        underscoreArray = underscoreArray.slice(0, charToTake+1)
-        println(underscoreArray)
-        underscoreArray += char
-        guess.wordBool = false
-      else
-        var elem : Int = charToTake
-        while elem <= userArray.length do
-          if userArray(elem) == '\u0020' || userArray(elem) == '\u0009' || userArray(elem) == '\u000D' || userArray(elem) == '\u000A' then
-            underscoreArray += ' '
-          else if userArray(elem) == ',' then
-            underscoreArray += ','
-          else
-            underscoreArray += '_'
-          elem += 1
-          guess.wordBool = false
-      charToTake += 1
-
+  def setLetters(userArray : ArrayBuffer[Char], charsToAdd : String, indexToAddCharsAt: Int): ArrayBuffer[Char] = {
+    val lettersArray = charsToAdd.toList
+    lettersArray.zipWithIndex.foreach {
+      case(correctLetters, arrayIndex) => userArray(arrayIndex + indexToAddCharsAt) = correctLetters
+    }
+    userArray
   }
+
+  def addLetters() : Unit = {
+    idx = 0
+    while idx < underscoreArray.length do
+      val charToAdd = guess.newUserGuess.toString
+      if guess.correctWord(idx) == guess.newUserGuess then
+        setLetters(underscoreArray, charToAdd, idx)
+      idx += 1
+  }
+
   def toUnderscores(string : ArrayBuffer[Char]) : String = {
     for elem <- string do
-      //addCorrectGuess()
       if elem == '\u0020' || elem == '\u0009' || elem == '\u000D' || elem == '\u000A' then
         underscoredWord += " > "
       else if elem == ',' then
@@ -75,7 +67,7 @@ object word :
 
 object guess :
   var correctWord = ""
-  var newUserGuess = ""
+  var newUserGuess = ' '
   var wordBool = false
   def guessBool(guess : String) : Unit = {
     if guess == correctWord then wordBool = true
@@ -89,34 +81,46 @@ object guess :
       }
     else wordBool = false
   }
-class player extends wordState {
-  var userWord = ""
-  def currentWord() : Unit = {
-    println(this.userWord)
-  }
-  override def word(userWord: String): String = {
-    for char <- userWord do
-      this.userWord += char
-    println(this.userWord)
-    this.userWord
+
+object oneTutu :
+  var oneTutu : Int = 0
+def newText() : Unit = {
+  if oneTutu.oneTutu >= 1 then
+    run()
+  new Frame() {
+    title = "HANGMAN"
+    preferredSize = new Dimension(500, 500)
+    contents = new GridPanel(5, 5) {
+      contents += new TextField("Type your guess in the console, use the button to start the check...", 25)
+      contents += new TextField("" + word.underscoreArray)
+      contents += new ToggleButton("Make a guess...") {
+        reactions += {
+          case event.ButtonClicked(enabled_) =>
+            close()
+            newTextTwo()
+        }
+      }
+    }
+    pack()
+    centerOnScreen()
+    open()
   }
 }
 
-def newText() : Unit = {
-  val user = new player()
-  game.getNewWord
-  game.nextRound
-  game.newGuess()
+def newTextTwo() : Unit = {
+  oneTutu.oneTutu += 1
+  run()
   new Frame() {
     title = "HANGMAN"
     preferredSize = new Dimension(500,500)
     contents = new GridPanel(5,5){
       contents += new TextField("Type your guess in the console, use the button to start the check...", 25)
-      contents += new TextField(f"${word.underscoredWord}")
-      contents += new  ToggleButton("Check your guess!") {
+      contents += new TextField("" + word.underscoreArray)
+      contents += new  ToggleButton("Make a guess...") {
         reactions += {
           case event.ButtonClicked(enabled_) =>
-
+            close()
+            newText()
         }
       }
 
@@ -131,20 +135,20 @@ object game :
   var guessNew = ""
   def getNewWord : Any = {
     println("Type your word in the console below this.")
-    val user = new player()
     val word = readLine()
-    user.word(word)
-    guess.correctWord = user.userWord
+    guess.correctWord = word
 
   }
-  def newGuess() : String = {
+  def newGuess() : Unit = {
     println("Type your guess below")
     val userGuess = readLine()
-    guess.newUserGuess = userGuess
+    var userChar : Char = ' '
+    for elem <- userGuess do userChar = elem
+    guess.newUserGuess = userChar
     guessNew = userGuess
-    userGuess
   }
   def nextRound : Unit= {
+
     word.toArray(guess.correctWord)
 
     word.toUnderscores(word.userArray)
@@ -152,28 +156,25 @@ object game :
     word.copyArray()
 
   }
+
+def run() : Unit = {
+
+  game.newGuess()
+
+  guess.guessBool(game.guessNew)
+
+  word.addLetters()
+
+  //println(guess.newUserGuess)
+
+  println(word.underscoreArray)
+}
 def hmMain(): Unit = {
 
   game.getNewWord
 
-  println(word.underscoreArray)
-
   game.nextRound
 
-  println(word.underscoreArray)
-
-  println(word.underscoredWord)
-
-  game.newGuess()
-
-  println(word.underscoreArray)
-
-  guess.guessBool(game.guessNew)
-
-  println(word.underscoreArray)
-
-  word.addCorrectGuess()
-
-  println(word.underscoreArray)
+  newText()
 
 }

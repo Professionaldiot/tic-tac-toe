@@ -5,55 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f7a659e-d82b-4cf8-a420-81abce760716" name="Changes" comment="1.9.1 - added functionality for making words into underscores">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/tictactoe-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/tictactoe-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/tictactoe.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/tictactoe.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/target/config-classes/$4bacaac2d6908962c6d1$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/target/config-classes/$4bacaac2d6908962c6d1.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/target/config-classes/$4bacaac2d6908962c6d1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$0007c6c5070b98e968de$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$0007c6c5070b98e968de.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$0007c6c5070b98e968de.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$90184f81bec5112bba6d$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$90184f81bec5112bba6d.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$90184f81bec5112bba6d.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$975b657d952b44d0c852$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$975b657d952b44d0c852.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$975b657d952b44d0c852.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$e6b267a8dde34c45faa5$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$e6b267a8dde34c45faa5.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$e6b267a8dde34c45faa5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$f5e9a64cf4b8974b7f96$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$f5e9a64cf4b8974b7f96.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$f5e9a64cf4b8974b7f96.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/_global/update/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/_global/update/_global/streams/out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/_global/_global/compileOutputs/previous" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/_global/_global/compileOutputs/previous" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/exportedProducts/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/exportedProducts/_global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/incOptions/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/incOptions/_global/streams/out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/dependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/dependencyClasspath/_global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/exportedProducts/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/exportedProducts/_global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/_global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/internalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/internalDependencyClasspath/_global/streams/export" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/tictactoe/hangman.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/tictactoe/hangman.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardAdder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardAdder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardAdder.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardAdder.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardState.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardState.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardState.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/streams/_global/_global/dumpStructureTo/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/_global/_global/dumpStructureTo/_global/streams/out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/streams/_global/dependencyPositions/_global/streams/update_cache_3/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/_global/dependencyPositions/_global/streams/update_cache_3/output_dsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +70,6 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -207,8 +159,11 @@
       <workItem from="1697017468543" duration="383000" />
       <workItem from="1697018374172" duration="514000" />
       <workItem from="1697019595254" duration="1285000" />
-      <workItem from="1697041626144" duration="3648000" />
-      <workItem from="1697045303692" duration="1185000" />
+      <workItem from="1697029904924" duration="542000" />
+      <workItem from="1697030755609" duration="1176000" />
+      <workItem from="1697032061881" duration="1301000" />
+      <workItem from="1697046603602" duration="1523000" />
+      <workItem from="1697048279708" duration="487000" />
     </task>
     <task id="LOCAL-00001" summary="v1.5 working - mostly, added another file that will draw the board when finished">
       <option name="closed" value="true" />
