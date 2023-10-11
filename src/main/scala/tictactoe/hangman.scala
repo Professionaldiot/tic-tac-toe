@@ -72,14 +72,16 @@ class player extends wordState {
   }
 }
 
-def newText(userGuess : String) : Unit = {
+def newText() : Unit = {
   val user = new player()
+  start
   new Frame() {
     title = "HANGMAN"
     preferredSize = new Dimension(500,500)
 
     contents = new GridPanel(5,5){
       contents += new TextField("Type your guess in the console, use the button to start the check...", 25)
+      contents += new TextField(f"${word.underscoredWord}")
       contents += new  ToggleButton("Check your guess!") {
         reactions += {
           case event.ButtonClicked(enabled_) =>
@@ -103,18 +105,15 @@ def getNewWord : Any = {
 
 }
 
-def hmMain(): Unit = {
-  /*
-  val user = new player()
-  println("i am here")
-  user.word("test")
-  println(user.currentWord())
-  */
+def newGuess() : Unit = {
+  println()
+  val guess = readLine()
+}
+def start : Unit= {
   getNewWord
   word.toArray(guess.correctWord)
   word.toUnderscores(word.userArray)
-  println(word.userArray)
-  println()
-  println(guess.correctWord)
-  println(word.underscoredWord)
+}
+def hmMain(): Unit = {
+  newText()
 }
