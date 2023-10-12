@@ -4,9 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f7a659e-d82b-4cf8-a420-81abce760716" name="Changes" comment="2.0 - finalized the make a guess button logic by routing the run() function to two different, yet identical Frames&#10;removed deprecated methods, values/variables, traits, classes, etc.">
+    <list default="true" id="9f7a659e-d82b-4cf8-a420-81abce760716" name="Changes" comment="2.1.0 - added win/loss detection, started work on adding a wrong letter array buffer to show wrong letters in the Frame">
+      <change afterPath="$PROJECT_DIR$/src/main/scala/tictactoe/GUI.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/tictactoe/hangman.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/tictactoe/hangman.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/tictactoe/tictactoe.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/tictactoe/tictactoe.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardAdder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardAdder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardAdder.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardAdder.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardState.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardState.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardState.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package$$anon$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package$$anon$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package$$anon$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package$$anon$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.tasty" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +100,20 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.tttMain">
+  <component name="RunManager" selected="Application.GUI">
+    <configuration name="GUI" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="tictactoe.GUI" />
+      <module name="tictactoe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tictactoe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="hmMain" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="tictactoe.hmMain" />
       <module name="tictactoe" />
@@ -127,6 +162,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GUI" />
         <item itemvalue="Application.tttMain" />
         <item itemvalue="Application.hmMain" />
         <item itemvalue="Application.tictactoe.main" />
@@ -166,7 +202,9 @@
       <workItem from="1697048279708" duration="741000" />
       <workItem from="1697098788017" duration="1580000" />
       <workItem from="1697102187986" duration="574000" />
-      <workItem from="1697102934227" duration="2143000" />
+      <workItem from="1697102934227" duration="2526000" />
+      <workItem from="1697105703199" duration="978000" />
+      <workItem from="1697106989474" duration="193000" />
     </task>
     <task id="LOCAL-00001" summary="v1.5 working - mostly, added another file that will draw the board when finished">
       <option name="closed" value="true" />
@@ -240,7 +278,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697048933407</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="2.1.0 - added win/loss detection, started work on adding a wrong letter array buffer to show wrong letters in the Frame">
+      <option name="closed" value="true" />
+      <created>1697105170364</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1697105170364</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,6 +311,7 @@
     <MESSAGE value="1.9 - added multiple fixes for hangman.scala, included in these fixes are some new functions, still have to get the list interacting with swing" />
     <MESSAGE value="1.9.1 - added functionality for making words into underscores" />
     <MESSAGE value="2.0 - finalized the make a guess button logic by routing the run() function to two different, yet identical Frames&#10;removed deprecated methods, values/variables, traits, classes, etc." />
-    <option name="LAST_COMMIT_MESSAGE" value="2.0 - finalized the make a guess button logic by routing the run() function to two different, yet identical Frames&#10;removed deprecated methods, values/variables, traits, classes, etc." />
+    <MESSAGE value="2.1.0 - added win/loss detection, started work on adding a wrong letter array buffer to show wrong letters in the Frame" />
+    <option name="LAST_COMMIT_MESSAGE" value="2.1.0 - added win/loss detection, started work on adding a wrong letter array buffer to show wrong letters in the Frame" />
   </component>
 </project>

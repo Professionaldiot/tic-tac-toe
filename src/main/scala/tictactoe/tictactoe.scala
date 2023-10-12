@@ -155,6 +155,13 @@ def newButton() : Unit = {
             main()
         }
       }
+      contents += new ToggleButton("Back to main GUI") {
+        reactions += {
+          case event.ButtonClicked(_) =>
+            close()
+            GUI()
+        }
+      }
     }
     pack()
     centerOnScreen()
@@ -168,7 +175,7 @@ object win :
     winner.horiz(board.bard)
     winner.vertical(board.bard)
     winner.diagonal(board.bard)
-    if round.tieChecker == true then println("There is a tie, no one won.")
+    if round.tieChecker then println("There is a tie, no one won.")
   }
 
 object winner :
@@ -254,18 +261,4 @@ object round :
 
 def main() : Unit = {
   newButton()
-}
-@main def tttMain() : Unit = {
-  /*
-  println("Press 1 for Tic-Tac-Toe or press 2 for Hangman")
-  val user = readLine()
-  if user == "1" then
-    newButton()
-  else
-    hmMain()
-    println()
-
-   */
-  hmMain()
-
 }
