@@ -6,10 +6,6 @@ import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.ArrayBuffer.*
 import scala.collection.mutable
 import scala.collection.mutable.*
-import scala.language.postfixOps
-import scala.swing.event.KeyPressed.*
-import scala.swing.event.Key.*
-import scala.swing.event.Key.Location
 import scala.util.control.Breaks.*
 /*
 DONE: word state trait
@@ -17,15 +13,17 @@ TODO: get user inputted text on screen to the swing Frame
 TODO: from a list, take a random word from said list to get a random word
 SCRAPPED: use swing to type user input in a box and check whether it's the correct word or not
 TODO: get wrong letters written to swing Frame
-TODO: add a way to update the man according to whether the letter was right or wrong
-TODO: win detection
-TODO: loss detection
+SCRAPPED: add a way to update the man according to whether the letter was right or wrong
+DONE: win detection
+DONE: loss detection
 DONE: remove deprecated methods, traits and vals
 DONE: using word.setLetters fill in the blank letters if they are right
  */
 
 object word :
+  var wrongLetters : ArrayBuffer[Any] = ArrayBuffer[Any]()
   var idx = 0
+  private var wrongLetterFound = 0
   var underscoredWord : String = ""
   val userArray : ArrayBuffer[Char] = ArrayBuffer[Char]() //including spaces
   var underscoreArray : ArrayBuffer[Char] = ArrayBuffer[Char]()
@@ -51,6 +49,11 @@ object word :
       val charToAdd = guess.newUserGuess.toString
       if guess.correctWord(idx) == guess.newUserGuess then
         setLetters(underscoreArray, charToAdd, idx)
+      else if idx == underscoreArray.length-1 then
+        if guess.correctWord(underscoreArray.length-1) == guess.newUserGuess then
+          setLetters(underscoreArray, charToAdd, idx)
+        else
+          wrongLetters += guess.newUserGuess
       idx += 1
   }
 
@@ -60,6 +63,8 @@ object word :
         underscoredWord += " > "
       else if elem == ',' then
         underscoredWord += ","
+      else if elem == '\'' then
+        underscoredWord += "\'"
       else
         underscoredWord += "_ "
     underscoredWord
@@ -82,57 +87,47 @@ object guess :
     else wordBool = false
   }
 
-object oneTutu :
-  var oneTutu : Int = 0
+object open :
+  var orElse : Int = 0
 def newText() : Unit = {
-  if oneTutu.oneTutu >= 1 then
+  if open.orElse >= 1 then
     run()
-  new Frame() {
-    title = "HANGMAN"
-    preferredSize = new Dimension(500, 500)
-    contents = new GridPanel(5, 5) {
-      contents += new TextField("Type your guess in the console, use the button to start the check...", 25)
-      contents += new TextField("" + word.underscoreArray)
-      contents += new ToggleButton("Make a guess...") {
-        reactions += {
-          case event.ButtonClicked(enabled_) =>
-            close()
-            newTextTwo()
+  open.orElse += 1
+  if guess.correctWord == game.guessNew then
+    println(f"you did it! you got ${guess.correctWord} in ${game.round} rounds!")
+  else if game.round == 10 then
+    println(f"you did not find the word ${guess.correctWord} in 10 rounds")
+  else
+    new Frame() {
+      title = "HANGMAN"
+      preferredSize = new Dimension(500, 500)
+      contents = new GridPanel(5, 5) {
+        contents += new TextField("Type your guess in the console, use the button to start the check...", 25)
+        contents += new TextField(word.underscoreArray.toString().substring(12,word.underscoreArray.length*3 + 10))
+        contents += new TextField("")
+        contents += new ToggleButton("Make a guess...") {
+          reactions += {
+            case event.ButtonClicked(enabled_) =>
+              close()
+              newText()
+          }
         }
       }
+      pack()
+      centerOnScreen()
+      open()
+      game.goNext
     }
-    pack()
-    centerOnScreen()
-    open()
-  }
-}
-
-def newTextTwo() : Unit = {
-  oneTutu.oneTutu += 1
-  run()
-  new Frame() {
-    title = "HANGMAN"
-    preferredSize = new Dimension(500,500)
-    contents = new GridPanel(5,5){
-      contents += new TextField("Type your guess in the console, use the button to start the check...", 25)
-      contents += new TextField("" + word.underscoreArray)
-      contents += new  ToggleButton("Make a guess...") {
-        reactions += {
-          case event.ButtonClicked(enabled_) =>
-            close()
-            newText()
-        }
-      }
-
-    }
-    pack()
-    centerOnScreen()
-    open()
-  }
 }
 
 object game :
+  var round : Int = 0
   var guessNew = ""
+
+  def goNext : Int = {
+    round += 1
+    round
+  }
   def getNewWord : Any = {
     println("Type your word in the console below this.")
     val word = readLine()
@@ -145,7 +140,7 @@ object game :
     var userChar : Char = ' '
     for elem <- userGuess do userChar = elem
     guess.newUserGuess = userChar
-    guessNew = userGuess
+    guessNew += userGuess
   }
   def nextRound : Unit= {
 
@@ -165,9 +160,11 @@ def run() : Unit = {
 
   word.addLetters()
 
-  //println(guess.newUserGuess)
+  val printable = word.underscoreArray.toString().substring(12,word.underscoreArray.length*3 + 10)
 
-  println(word.underscoreArray)
+  println(printable)
+
+  println(word.wrongLetters)
 }
 def hmMain(): Unit = {
 
@@ -175,6 +172,11 @@ def hmMain(): Unit = {
 
   game.nextRound
 
-  newText()
+  run()
+
+
+
+  //newText()
+
 
 }

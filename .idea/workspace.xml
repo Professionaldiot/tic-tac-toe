@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f7a659e-d82b-4cf8-a420-81abce760716" name="Changes" comment="1.9.1 - added functionality for making words into underscores">
+    <list default="true" id="9f7a659e-d82b-4cf8-a420-81abce760716" name="Changes" comment="2.0 - finalized the make a guess button logic by routing the run() function to two different, yet identical Frames&#10;removed deprecated methods, values/variables, traits, classes, etc.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/tictactoe/hangman.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/tictactoe/hangman.scala" afterDir="false" />
     </list>
@@ -163,7 +163,10 @@
       <workItem from="1697030755609" duration="1176000" />
       <workItem from="1697032061881" duration="1301000" />
       <workItem from="1697046603602" duration="1523000" />
-      <workItem from="1697048279708" duration="487000" />
+      <workItem from="1697048279708" duration="741000" />
+      <workItem from="1697098788017" duration="1580000" />
+      <workItem from="1697102187986" duration="574000" />
+      <workItem from="1697102934227" duration="2143000" />
     </task>
     <task id="LOCAL-00001" summary="v1.5 working - mostly, added another file that will draw the board when finished">
       <option name="closed" value="true" />
@@ -229,7 +232,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697020398993</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="2.0 - finalized the make a guess button logic by routing the run() function to two different, yet identical Frames&#10;removed deprecated methods, values/variables, traits, classes, etc.">
+      <option name="closed" value="true" />
+      <created>1697048933407</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1697048933407</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,6 +264,7 @@
     <MESSAGE value="1.8 fixed a bug causing setWord to run hangman.scala indefinitely (by removing setWord)" />
     <MESSAGE value="1.9 - added multiple fixes for hangman.scala, included in these fixes are some new functions, still have to get the list interacting with swing" />
     <MESSAGE value="1.9.1 - added functionality for making words into underscores" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.9.1 - added functionality for making words into underscores" />
+    <MESSAGE value="2.0 - finalized the make a guess button logic by routing the run() function to two different, yet identical Frames&#10;removed deprecated methods, values/variables, traits, classes, etc." />
+    <option name="LAST_COMMIT_MESSAGE" value="2.0 - finalized the make a guess button logic by routing the run() function to two different, yet identical Frames&#10;removed deprecated methods, values/variables, traits, classes, etc." />
   </component>
 </project>
