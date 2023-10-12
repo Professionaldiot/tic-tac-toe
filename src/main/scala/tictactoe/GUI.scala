@@ -19,7 +19,7 @@ import scala.swing.*
         reactions += {
           case event.ButtonClicked(_) =>
             close()
-            hmMain()
+            compOrNot()
         }
       }
     }
