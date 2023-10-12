@@ -7,12 +7,14 @@ import scala.collection.mutable.ArrayBuffer.*
 import scala.collection.mutable
 import scala.collection.mutable.*
 import scala.util.control.Breaks.*
+import scala.util.Random.*
+
 /*
-TODO: add a button GUI for user vs computer or another user
+DONE: add a button GUI for user vs computer or another user
 DONE: add GUI for main screen to avoid a lot of console inputs
 DONE: word state trait
 DONE: get user inputted text on screen to the swing Frame
-TODO: from a list, take a random word from said list to get a random word
+TODO: using a case class and vector, randomly select a word
 SCRAPPED: use swing to type user input in a box and check whether it's the correct word or not
 DONE: get wrong letters written to swing Frame
 SCRAPPED: add a way to update the man according to whether the letter was right or wrong
@@ -21,6 +23,23 @@ DONE: loss detection
 DONE: remove deprecated methods, traits and vals
 DONE: using word.setLetters fill in the blank letters if they are right
  */
+
+object prev :
+  var word = ""
+
+case class newWord(compWord : String) //using above object make sure we cant select the previous word either, this object could be anywhere
+//i chose to put it above the class class for readability
+
+def getNewWord : Vector[newWord] = {
+  Vector(
+    newWord("hello world"),
+    newWord("hangman in scala"),
+    newWord("christmas"),
+    newWord("copmuter science"),
+    newWord("data"),
+    newWord("programming")
+  )
+}
 
 object word :
   var wrongLetters : ArrayBuffer[Any] = ArrayBuffer[Any]()
@@ -137,6 +156,38 @@ def newText() : Unit = {
     }
 }
 
+def compOrNot() : Unit = {
+  new Frame {
+    title = "HANG-MAN HOME SCREEN"
+    preferredSize = new Dimension(500,500)
+    contents = new FlowPanel {
+      contents += new ToggleButton("Computer") {
+        reactions += {
+          case event.ButtonClicked(_) =>
+            println()
+        }
+      }
+      contents += new ToggleButton("Another Player") {
+        reactions += {
+          case event.ButtonClicked(_) =>
+            close()
+            hmMain()
+        }
+      }
+      contents += new ToggleButton("MAIN MENU") {
+        reactions += {
+          case event.ButtonClicked(_) =>
+            close()
+            GUI()
+        }
+      }
+    }
+    pack()
+    centerOnScreen()
+    open()
+  }
+}
+
 object game :
   var round : Int = 0
   var guessNew = ""
@@ -164,6 +215,10 @@ object game :
     word.toUnderscores(word.userArray)
     word.copyArray()
   }
+  def compLogic(compWord : String) : Unit = {
+    guess.correctWord = compWord
+    nextRound
+  }
 
 def run() : Unit = {
   game.newGuess()
@@ -173,6 +228,7 @@ def run() : Unit = {
   println(printable)
   println(word.wrongLetters)
 }
+
 def hmMain(): Unit = {
   game.getNewWord
   game.nextRound
