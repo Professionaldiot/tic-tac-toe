@@ -4,24 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f7a659e-d82b-4cf8-a420-81abce760716" name="Changes" comment="2.0 - finalized the make a guess button logic by routing the run() function to two different, yet identical Frames&#10;removed deprecated methods, values/variables, traits, classes, etc.">
+    <list default="true" id="9f7a659e-d82b-4cf8-a420-81abce760716" name="Changes" comment="2.2.0 - add a case class for some words for the computer to randomly select from, and added a few TODOS and finished them between this and last version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/tictactoe/GUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/tictactoe/GUI.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/tictactoe/hangman.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/tictactoe/hangman.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/board.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardAdder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardAdder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardAdder.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardAdder.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardState.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardState.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/boardState.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/round.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/tictactoe$package.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/win.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/tictactoe/winner.tasty" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +44,9 @@
     &quot;assignee&quot;: &quot;Professionaldiot&quot;
   }
 }</component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -84,21 +72,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "home",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;home&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.GUI">
     <configuration name="GUI" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="tictactoe.GUI" />
@@ -202,6 +190,7 @@
       <workItem from="1697098788017" duration="1580000" />
       <workItem from="1697102187986" duration="574000" />
       <workItem from="1697102934227" duration="2143000" />
+      <workItem from="1697153058948" duration="2761000" />
     </task>
     <task id="LOCAL-00001" summary="v1.5 working - mostly, added another file that will draw the board when finished">
       <option name="closed" value="true" />
@@ -275,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697048933407</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="2.2.0 - add a case class for some words for the computer to randomly select from, and added a few TODOS and finished them between this and last version">
+      <option name="closed" value="true" />
+      <created>1697133199953</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1697133199953</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,6 +297,7 @@
     <MESSAGE value="1.9 - added multiple fixes for hangman.scala, included in these fixes are some new functions, still have to get the list interacting with swing" />
     <MESSAGE value="1.9.1 - added functionality for making words into underscores" />
     <MESSAGE value="2.0 - finalized the make a guess button logic by routing the run() function to two different, yet identical Frames&#10;removed deprecated methods, values/variables, traits, classes, etc." />
-    <option name="LAST_COMMIT_MESSAGE" value="2.0 - finalized the make a guess button logic by routing the run() function to two different, yet identical Frames&#10;removed deprecated methods, values/variables, traits, classes, etc." />
+    <MESSAGE value="2.2.0 - add a case class for some words for the computer to randomly select from, and added a few TODOS and finished them between this and last version" />
+    <option name="LAST_COMMIT_MESSAGE" value="2.2.0 - add a case class for some words for the computer to randomly select from, and added a few TODOS and finished them between this and last version" />
   </component>
 </project>

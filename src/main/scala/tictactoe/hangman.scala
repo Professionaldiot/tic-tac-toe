@@ -1,5 +1,7 @@
 package tictactoe
 
+import tictactoe.game.compLogic
+
 import scala.swing.*
 import scala.io.StdIn.readLine
 import scala.collection.mutable.ArrayBuffer
@@ -14,11 +16,11 @@ DONE: add a button GUI for user vs computer or another user
 DONE: add GUI for main screen to avoid a lot of console inputs
 DONE: word state trait
 DONE: get user inputted text on screen to the swing Frame
-TODO: using a case class and vector, randomly select a word
+DONE: using a case class and vector, randomly select a word
 SCRAPPED: use swing to type user input in a box and check whether it's the correct word or not
 DONE: get wrong letters written to swing Frame
 SCRAPPED: add a way to update the man according to whether the letter was right or wrong
-DONE: win detection
+TODO: win detection
 DONE: loss detection
 DONE: remove deprecated methods, traits and vals
 DONE: using word.setLetters fill in the blank letters if they are right
@@ -37,7 +39,35 @@ def getNewWord : Vector[newWord] = {
     newWord("christmas"),
     newWord("copmuter science"),
     newWord("data"),
-    newWord("programming")
+    newWord("programming"),
+    newWord("coding"),
+    newWord("code"),
+    newWord("spaghetti code"),
+    newWord("deutschland"),
+    newWord("halloween"),
+    newWord("scala"),
+    newWord("java"),
+    newWord("java script"),
+    newWord("html"),
+    newWord("python"),
+    newWord("r"),
+    newWord("lisp"),
+    newWord("assembly"),
+    newWord("intellij"),
+    newWord("integrated development environment"),
+    newWord("array buffer"),
+    newWord("char"),
+    newWord("c sharp"),
+    newWord("string"),
+    newWord("integer"),
+    newWord("to string"),
+    newWord("bugs in my code"),
+    newWord("hewlett packard"),
+    newWord("sun microsystems"),
+    newWord("rip and tear, until it is done"),
+    newWord("stardew valley"),
+    newWord("doom eternal"),
+    newWord("hey there"),
   )
 }
 
@@ -47,8 +77,23 @@ object word :
   var idx = 0
   private var wrongLetterNotFound = 0
   var underscoredWord : String = ""
-  val userArray : ArrayBuffer[Char] = ArrayBuffer[Char]() //including spaces
+  var userArray : ArrayBuffer[Char] = ArrayBuffer[Char]() //including spaces
   var underscoreArray : ArrayBuffer[Char] = ArrayBuffer[Char]()
+
+  def reset() : Unit = {
+    wrongLetters= ArrayBuffer[Any]()
+    wrongString = ""
+    idx = 0
+    wrongLetterNotFound = 0
+    underscoredWord= ""
+    userArray = ArrayBuffer[Char]() //including spaces
+    underscoreArray = ArrayBuffer[Char]()
+    guess.newUserGuess = ' '
+    guess.correctWord = ""
+    game.guessNew = ""
+    game.round = 0
+    open.orElse = 0
+  }
   def copyArray() : Unit = {
     for elem <- underscoredWord do if elem != ' ' then underscoreArray += elem
   }
@@ -72,6 +117,7 @@ object word :
 
   def addLetters() : Unit = {
     idx = 0
+    wrongLetterNotFound = 0
     while idx < underscoreArray.length do
       val charToAdd = guess.newUserGuess.toString
       if guess.correctWord(idx) == guess.newUserGuess then
@@ -116,24 +162,56 @@ object guess :
     else wordBool = false
   }
 
+object wind :
+  var bool = false
+  var stringCheck = ""
+  def arrayToString : Unit = {
+    stringCheck = ""
+    for elem <- word.underscoreArray do
+      if elem == '>' || elem == '\u003E' then
+        stringCheck += " "
+      if elem == '\u002C' then
+        println()
+      if elem == '\'' then
+        stringCheck += "'"
+      if elem != '\u003E' && elem != '\'' && elem != '\u002C' then
+        stringCheck += elem
+  }
 object open :
   var orElse : Int = 0
 def newText() : Unit = {
-  if open.orElse >= 1 then
-    run()
-  open.orElse += 1
+  wind.arrayToString
+  println(wind.stringCheck)
+  if wind.stringCheck == guess.correctWord then
+    println("You did it! you have guessed the correct word")
   if guess.correctWord == game.guessNew then
     println(f"you did it! you got ${guess.correctWord} in ${game.round} rounds!")
-  else if game.round == 10 then
+  else if open.orElse >= 1 then
+    run()
+  open.orElse += 1
+  if game.round == 10 then
     println(f"you did not find the word ${guess.correctWord} in 10 rounds")
   else
     new Frame() {
       title = "HANGMAN"
       preferredSize = new Dimension(500, 500)
-      contents = new GridPanel(5, 5) {
+      contents = new GridPanel(6, 5) {
         contents += new TextField("Type your guess in the console, use the button to start the check...", 25)
         contents += new TextField(word.underscoreArray.toString().substring(12,word.underscoreArray.length*3 + 10))
         contents += new TextField(word.wrongLettersToString())
+        contents += new ToggleButton("I think I have guessed the word!") {
+          reactions += {
+            case event.ButtonClicked(_) =>
+              wind.arrayToString
+              println(wind.stringCheck)
+              if wind.stringCheck == guess.correctWord then
+                println(f"You did it! you got the word, ${guess.correctWord}, in ${game.round} rounds!")
+              else if guess.correctWord == game.guessNew then
+                println(f"You did it! you got the word, ${guess.correctWord}, in ${game.round} rounds!")
+              else
+                println("Nope, the input that the computer read, does not match the expected word, try again :)")
+          }
+        }
         contents += new ToggleButton("Make a guess...") {
           reactions += {
             case event.ButtonClicked(enabled_) =>
@@ -164,12 +242,15 @@ def compOrNot() : Unit = {
       contents += new ToggleButton("Computer") {
         reactions += {
           case event.ButtonClicked(_) =>
-            println()
+            close()
+            compLogic(getNewWord(nextInt(getNewWord.size)).compWord)
+            newText()
         }
       }
       contents += new ToggleButton("Another Player") {
         reactions += {
           case event.ButtonClicked(_) =>
+            word.reset()
             close()
             hmMain()
         }
@@ -208,7 +289,7 @@ object game :
     var userChar : Char = ' '
     for elem <- userGuess do userChar = elem
     guess.newUserGuess = userChar
-    guessNew += userGuess
+    guessNew = userGuess
   }
   def nextRound : Unit= {
     word.toArray(guess.correctWord)
@@ -224,9 +305,6 @@ def run() : Unit = {
   game.newGuess()
   guess.guessBool(game.guessNew)
   word.addLetters()
-  val printable = word.underscoreArray.toString().substring(12,word.underscoreArray.length*3 + 10)
-  println(printable)
-  println(word.wrongLetters)
 }
 
 def hmMain(): Unit = {
