@@ -161,7 +161,6 @@ object guess :
       }
     else wordBool = false
   }
-
 object wind :
   var bool = false
   var stringCheck = ""
